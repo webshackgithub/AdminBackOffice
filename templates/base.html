@@ -85,6 +85,7 @@
     class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-50 font-sans antialiased h-screen flex overflow-hidden"
     x-data="{ 
         sidebarOpen: true,
+        showMarquee: true,
         profileModalOpen: false,
         darkMode: localStorage.getItem('darkMode') === 'true' || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches),
         toggleDarkMode() {
@@ -109,6 +110,9 @@
 
         <!-- Header -->
         {% include 'components/header.html' %}
+
+        <!-- Notice Marquee -->
+        {% include 'components/notice_marquee.html' %}
 
         <!-- Breadcrumbs -->
         {% include 'components/breadcrumbs.html' %}
