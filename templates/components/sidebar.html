@@ -1,0 +1,120 @@
+<aside
+    class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col transition-all duration-300">
+    <!-- Logo -->
+    <div class="h-16 flex items-center px-6 border-b border-slate-200 dark:border-slate-800">
+        <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Admin<span
+                class="text-brand-800 dark:text-brand-500">Panel</span></h1>
+    </div>
+
+    <!-- Nav -->
+    <nav class="flex-1 px-4 py-6 space-y-1">
+
+        <!-- Dashboard Link -->
+        {% with url_name=request.resolver_match.view_name %}
+        <a href="{% url 'dashboard:home' %}" class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors
+                  {% if url_name == 'dashboard:home' %}
+                      bg-slate-700 dark:bg-brand-900 text-white dark:text-white
+                  {% else %}
+                      text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800
+                  {% endif %}">
+            <svg class="mr-3 flex-shrink-0 h-5 w-5 
+                        {% if url_name == 'dashboard:home' %}text-white dark:text-brand-500{% else %}text-slate-400 group-hover:text-slate-500 dark:group-hover:text-slate-300{% endif %}"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+            Dashboard
+        </a>
+
+        <!-- Users Link -->
+        <a href="{% url 'users:list' %}" class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors
+                  {% if 'users' in url_name %}
+                      bg-slate-700 dark:bg-brand-900 text-white dark:text-white
+                  {% else %}
+                      text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800
+                  {% endif %}">
+            <svg class="mr-3 flex-shrink-0 h-5 w-5 
+                        {% if 'users' in url_name %}text-white dark:text-brand-500{% else %}text-slate-400 group-hover:text-slate-500 dark:group-hover:text-slate-300{% endif %}"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            Users
+        </a>
+
+        <!-- Analytics Link -->
+        <a href="{% url 'dashboard:analytics' %}" class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors
+                  {% if url_name == 'dashboard:analytics' %}
+                      bg-slate-700 dark:bg-brand-900 text-white dark:text-white
+                  {% else %}
+                      text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800
+                  {% endif %}">
+            <svg class="mr-3 flex-shrink-0 h-5 w-5 
+                        {% if url_name == 'dashboard:analytics' %}text-white dark:text-brand-500{% else %}text-slate-400 group-hover:text-slate-500 dark:group-hover:text-slate-300{% endif %}"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            Analytics
+        </a>
+
+        <!-- Settings Link -->
+        <a href="{% url 'dashboard:settings' %}" class="group flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors
+                  {% if url_name == 'dashboard:settings' %}
+                       bg-slate-700 dark:bg-brand-900 text-white dark:text-white
+                  {% else %}
+                      text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800
+                  {% endif %}">
+            <svg class="mr-3 flex-shrink-0 h-5 w-5 
+                        {% if url_name == 'dashboard:settings' %}text-white dark:text-brand-500{% else %}text-slate-400 group-hover:text-slate-500 dark:group-hover:text-slate-300{% endif %}"
+                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Settings
+        </a>
+        {% endwith %}
+    </nav>
+
+    <!-- User Profile Footer -->
+    <div class="border-t border-slate-200 dark:border-slate-800 p-4 relative" x-data="{ userMenuOpen: false }">
+        <div @click="userMenuOpen = !userMenuOpen" @click.outside="userMenuOpen = false"
+            class="flex items-center cursor-pointer group">
+            <div
+                class="h-9 w-9 rounded-full bg-brand-100 dark:bg-brand-800 flex items-center justify-center text-brand-700 dark:text-white font-bold group-hover:bg-brand-200 dark:group-hover:bg-brand-700 transition-colors">
+                A
+            </div>
+            <div class="ml-3 flex-1">
+                <p
+                    class="text-sm font-medium text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                    Admin User</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">View Options</p>
+            </div>
+            <svg class="h-5 w-5 text-slate-400 group-hover:text-slate-500" :class="{'rotate-180': userMenuOpen}"
+                viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd" />
+            </svg>
+        </div>
+
+        <!-- Dropdown Menu -->
+        <div x-show="userMenuOpen" x-transition:enter="transition ease-out duration-100"
+            x-transition:enter-start="transform opacity-0 scale-95 translate-y-2"
+            x-transition:enter-end="transform opacity-100 scale-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-75"
+            x-transition:leave-start="transform opacity-100 scale-100 translate-y-0"
+            x-transition:leave-end="transform opacity-0 scale-95 translate-y-2" x-cloak
+            class="absolute bottom-full left-0 w-full mb-2 px-4">
+            <div
+                class="bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
+                <a @click.prevent="profileModalOpen = true; userMenuOpen = false"
+                    class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Profile</a>
+                <a href="{% url 'account_logout' %}"
+                    class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Logout</a>
+            </div>
+        </div>
+    </div>
+</aside>
